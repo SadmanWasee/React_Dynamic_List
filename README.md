@@ -6,7 +6,7 @@
   <li>Add items to the list after filling the form and pressing + button</li>
   <li>Check out items upon clicking the circle</li>
   <li>Counter to maintain count of items</li>
-  <li>Counter can not be less than 0 and will be disabled when checked out</li>
+  <li>Counter can not be less than 0 and will be disabled when the item is checked out</li>
   <li>Store all the information in local browser storage</li>
 </ul>
 
