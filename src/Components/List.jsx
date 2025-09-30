@@ -1,23 +1,23 @@
 import React, { useState, createContext, useEffect } from 'react'
 import Element from './Element'
+import TotalContext from './TotalContext'
 
-export const TotalContext = createContext()
 const appKey = 'appKey'
 
 function List() {
 
-  const [items, setItems] = useState(()=>{
+  const [items, setItems] = useState(() => {
     const itemsList = localStorage.getItem(appKey);
     if (!itemsList) return []
     return JSON.parse(itemsList);
   });
 
-  const [total, setTotal] = useState(()=>{
+  const [total, setTotal] = useState(() => {
     let value = localStorage.getItem("total");
-    if(!value){
+    if (!value) {
       return 0;
-    }else{
-      return(parseFloat(value))
+    } else {
+      return (parseFloat(value))
     }
   });
 
@@ -46,7 +46,7 @@ function List() {
     setItems((previtems) => {
       return ([...previtems, newItem])
     })
-    
+
   }
 
   localStorage.setItem(appKey, JSON.stringify(items))
@@ -74,7 +74,9 @@ function List() {
         </ul>
         <div className="clearfix text-white">
           <h5 className='float-end'>Total: {total}</h5>
-          <button onClick={handleClear} className='btn btn-warning float-start pt-0 pb-0'>Clear</button>
+          <button
+            onClick={handleClear}
+            className='btn btn-primary float-start pt-0 pb-0 text-white'><i className="fa-solid fa-rotate-right"></i></button>
         </div>
       </div>
     </>
