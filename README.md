@@ -8,6 +8,7 @@
   <li>Counter to maintain count of items</li>
   <li>Counter can not be less than 0 and will be disabled when the item is checked out</li>
   <li>Store all the information in local browser storage</li>
+  <li>Press reset button to delete browser data</li>
 </ul>
 
 <h4>User Interface</h4>
