@@ -8,6 +8,7 @@ function Element(props) {
   const toggleChecked = () => {
     setChecked(!checked)
   }
+  
 
   return (
     <>
@@ -15,11 +16,11 @@ function Element(props) {
         {checked ?
           <>
             <i onClick={toggleChecked} className="fa-solid fa-circle-check"></i>
-            <s>{props.item}</s><Counter checked={checked} />
+            <s>{props.item}</s><Counter name={props.item} checked={checked}/>
           </> :
           <>
             <i onClick={toggleChecked} className="fa-solid fa-circle"></i>
-            {props.item}<Counter checked={checked} />
+            {props.item}<Counter name={props.item} checked={checked} />
           </>
         }
       </li>

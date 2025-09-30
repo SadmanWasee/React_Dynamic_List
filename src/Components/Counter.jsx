@@ -1,24 +1,40 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { TotalContext } from './List';
 
 function Counter(props) {
 
   const totalContext = useContext(TotalContext);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    let value = localStorage.getItem(props.name)
+    if (!value) {
+      return 0
+    } else {
+      return (parseFloat(value))
+    }
+
+  });
+
 
   const increment = () => {
     if (!props.checked) {
       setCount(count + 1)
-      totalContext.setTotal(totalContext.total+1)
+      totalContext.setTotal(totalContext.total + 1)
+
     }
+
   }
 
   const decrement = () => {
     if (count > 0 && !props.checked) {
       setCount(count - 1)
-      totalContext.setTotal(totalContext.total-1)
+      totalContext.setTotal(totalContext.total - 1)
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem(props.name, JSON.stringify(count))
+    localStorage.setItem("total", JSON.stringify(totalContext.total))
+  },[count])
 
   return (
     <>
